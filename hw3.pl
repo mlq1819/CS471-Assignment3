@@ -446,7 +446,7 @@ has_subseq([a,b,c,d],[b,d]) should succeed, but has_subseq([a,b,c,d],[b,e]) shou
 has_subseq([],[]).
 has_subseq([H|Xt],[H|Yt]):-
 	has_subseq(Xt,Yt).
-has_subseq([Xh|Xt],Y):-
+has_subseq([_H|Xt],Y):-
 	has_subseq(Xt,Y).
 
 /* Problem 12 Test: */
