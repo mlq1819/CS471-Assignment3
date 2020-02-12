@@ -47,7 +47,7 @@ and are not a check for 100% correctness.
 /* Submission */
 
 /*
-For this assignment -- and the remaing Prolog assignments -- you must
+For this assignment -- and the remaining Prolog assignments -- you must
 submit only the source file. There is no need to tar anything as all
 coding should be done directly in hw3.pl.
 */
@@ -73,7 +73,18 @@ vertical(line(point(X,Y),point(X,Z))).
 horizontal(line(point(X,Y),point(Z,Y))).
 
 /* 1. Name the clauses, predicates, rules, and facts.
-   2. Name the constants, variables, and complex structures. */
+
+Each lines is a clause, since they both end with a period. The first clause begins with "vertical" and ends at the period, and the second clause begins with horizontal and ends at the period; clauses always end with periods.
+The predicates are vertical and horizontal.
+There are no rules; only facts.
+There are two facts here: one is "vertical(line(point(X,Y),point(X,Z))).", and the other is "horizontal(line(point(X,Y),point(Z,Y)))."
+
+   2. Name the constants, variables, and complex structures. 
+
+vertical, horizontal, line, and point are constants.
+X, Y, Z, X, Y, and Z are all Variables.
+line and point are complex structures.
+*/ 
 
 /* Problem 0B (Lab problem):
     A way of writing numerals, which is sometimes used in mathematical logic, makes
@@ -95,7 +106,19 @@ add(succ(X),Y,succ(Z))  :-
 
 
 /* 1. Name the clauses, predicates, rules, and facts.
-   2. Name the constants, variables, and complex structures. */
+
+There are four clauses; each ends at a period. The first is "numeral(0)." The second is "numeral(succ(X))  :-  numeral(X)." The third is "add(0,Y,Y)." The fourth begins with "add(succ" and ends with ").".
+The predicates are "numeral", "succ", and "add".
+The rules are "numeral(succ(X))", with the body "numeral(X)."; and "add(succ(X),Y,succ(Z))" with the body "add(X,Y,Z).".
+The facts are "numeral(0)" and "add(0,Y,Y)."
+
+   2. Name the constants, variables, and complex structures. 
+   
+The constants are numeral, 0, succ, and add.
+The variables are X, Y, X, Y, and Z.
+There are no complex structures.
+   */
+
 
 
 /* Problem 0C (Lab Problem):
@@ -130,6 +153,8 @@ Write a predicate insert_at(E,Y,N,Z) that succeeds if Z is the list Y with E ins
 NOTE: Don't worry about the error cases: i.e, N greater than the length of Y.  */
 
 /* Problem 0D Answer: */
+
+
 
 /* Problem 0D Test: */
 %:- insert_at(3,[1,2,3],2,[1,2,3,3]).  % SUCCEED
