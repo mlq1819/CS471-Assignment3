@@ -275,6 +275,11 @@ some_rule([X,Y|Xs]) :- ...  */
 
 /* Problem 5 Answer: */
 
+is_decreasing([]).
+is_decreasing([_A|[]]).
+is_decreasing([H1,H2|T]):-
+	H1>=H2, is_decreasing([H2|T]).
+
 /* Problem 5 Test: */
 %:- is_decreasing([]).            % SUCCEED
 %:- is_decreasing([10]).          % SUCCEED
