@@ -174,10 +174,17 @@ insert_at(E,[X|Y],N,[X|Z]) :-
      a) a relation?
      b) a function?
    B) Is every function a relation? If false, give a counter example.
-   C) Is every relation a function? If false, give a counter example. */
+   C) Is every relation a function? If false, give a counter example. 
+   */
 
 /* Problem 1 Answer: */
-
+/*
+	Aa) A relation describes a mathematical relationship between two or more variables, but does not necessarily act on them besides this.
+	Ab) A function takes one or more variables and uses them to produce a result; functions have an output.
+	B) Yes; as every function has an output, any function acts as a relation between its inputs and its output.
+	C) Technically, yes; a relation establishes a mathematical relationship between two or more variables; if neither could be mapped properly to an "output", then you can have them both act as arguments for this hypothetical function, the output of which simply being whether the relation is true; as such, it has inputs and outputs.
+   That said, I feel fairly confidant that the correct answer here is "no".
+*/
 /* Problem 2:
    Define homoiconic.
    Is Prolog homoiconic?
@@ -188,7 +195,12 @@ insert_at(E,[X|Y],N,[X|Z]) :-
 */
 
 /* Problem 2 Answer: */
-
+/*
+	A language is homoiconic if any given program written in it can behave as data for another written in the same language.
+	Prolog is homoiconic.
+	If a language were to be fully reflective, then it would be able to fully look at and modify its own structure and behavior. As an example, imagine a human who can look at not only their thoughts, but at the factors and systems that create their thoughts; such a human would be fully reflective, in the context of programming.
+	No programming languages are fully reflective; I feel like that would be a bootstrap paradox, or like the Tyranny of the Rocket Equation.
+*/
 /* Problem 3:
 
 The following are two basic predicates for list manipulation:
@@ -230,6 +242,9 @@ has_item/2.
 */
 
 /* Problem 3 Answer: */
+
+has_item(X,[X|_T]).
+has_item(X, [_H|Y]) :- has_item(X,Y).
 
 /* Problem 3 Test: */
 %:- has_item((1,3),[(1,2),(1,3)]).     % SUCCEED
