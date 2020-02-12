@@ -365,12 +365,19 @@ merge([10,3,2], [11,5,2], M) should give M =[11,10,5,3,2,2].
 
 /* Problem 9 Answer: */
 
-/* Problem 9 Test: */
-%:- merge([10,3,2],[11,5,2],[11,10,5,3,2,2]) .       % SUCCEED
-%:- merge([0],[],[0]).                               % SUCCEED
-%:- merge([],[3],[3]).                               % SUCCEED
+merge([],X,X).
+merge(X,[],X).
+merge([Ah|At],[Bh|Bt],M):-
+	Ah>=Bh, merge(At,[Bh|Bt],Ma), M is [Ah|Ma].
+merge([Ah|At],[Bh|Bt],M):-
+	Ah<Bh, merge([Ah|At],Bt,Mb), M is [Bh|Mb].
 
-%:- merge([4,3],[3],[3]).                            % FAIL
+/* Problem 9 Test: */
+:- merge([10,3,2],[11,5,2],[11,10,5,3,2,2]) .       % SUCCEED
+:- merge([0],[],[0]).                               % SUCCEED
+:- merge([],[3],[3]).                               % SUCCEED
+
+:- merge([4,3],[3],[3]).                            % FAIL
 
 /* Problem 10:
    See Problem 0B above for the knowledge base used for defining greater_than/2 .
