@@ -302,7 +302,7 @@ NOTE: Don't worry about the error cases: i.e, N greater than the length of Y.  *
 /* Problem 6 Answer: */
 
 element_at(X,[X|_T],0).
-element_at(X,[Yh|Yt],N):-
+element_at(X,[_Yh|Yt],N):-
 	Nn is N-1, element_at(X,Yt,Nn).
 
 /* Problem 6 Test: */
