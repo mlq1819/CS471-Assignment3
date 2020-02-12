@@ -154,7 +154,7 @@ NOTE: Don't worry about the error cases: i.e, N greater than the length of Y.  *
 
 /* Problem 0D Answer: */
 
-insert_at(E,[E|Z],0,[Z]).
+insert_at(E,[E|Z],0,Z).
 insert_at(E,Y,N,Z) :-
 	Y is [S|Yt], Z is [S|Zt], Nn is N-1, insert_at(E,Yt,Nn,Zt).
 
