@@ -301,11 +301,15 @@ NOTE: Don't worry about the error cases: i.e, N greater than the length of Y.  *
 
 /* Problem 6 Answer: */
 
-/* Problem 6 Test: */
-%:- element_at(3,[1,2,3],2).   % SUCCEED
-%:- element_at(1,[1,2,3],0).   % SUCCEED
+element_at(X,[X|_T],0).
+element_at(X,[Yh|Yt],N):-
+	Nn is N-1, element_at(X,Yt,Nn).
 
-%:- element_at(1,[1,2,3],1).     % FAIL
+/* Problem 6 Test: */
+:- element_at(3,[1,2,3],2).   % SUCCEED
+:- element_at(1,[1,2,3],0).   % SUCCEED
+
+:- element_at(1,[1,2,3],1).     % FAIL
 
 
 /* Problem 7 :
