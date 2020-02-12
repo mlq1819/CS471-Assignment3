@@ -313,20 +313,23 @@ element_at(X,[_Yh|Yt],N):-
 
 
 /* Problem 7 :
-Write a predicate delete_at(E,Y,N,Z) that succeeds if Z is the list Y with E delete at index N -- Delete E at index N in Y.
+Write a predicate delete_at(E,Y,N,Z) that succeeds if Z is the list Y with E deleted at index N -- Delete E at index N in Y.
 YOU SHOULD USE the predicate defined in 0D problem in lab to solve this problem.
 
 NOTE: Don't worry about the error cases: i.e, N greater than the length of Z.  */
 
 /* Problem 7 Answer: */
 
+delete_at(E,Y,N,Z):-
+	insert_at(E,Z,N,Y).
+
 /* Problem 7 Test: */
 
-%:- delete_at(3,[1,2,3,3],2,[1,2,3]).  % SUCCEED
-%:- delete_at(1,[1,1,2,3],0,[1,2,3]).  % SUCCEED
-%:- delete_at(a,[1,a,2,3],1,[1,2,3]).  % SUCCEED
+:- delete_at(3,[1,2,3,3],2,[1,2,3]).  % SUCCEED
+:- delete_at(1,[1,1,2,3],0,[1,2,3]).  % SUCCEED
+:- delete_at(a,[1,a,2,3],1,[1,2,3]).  % SUCCEED
 
-%:- delete_at(1,[1,2,3],0,[1,2,3]).    % FAIL
+:- delete_at(1,[1,2,3],0,[1,2,3]).    % FAIL
 
 
 
