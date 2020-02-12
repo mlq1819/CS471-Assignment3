@@ -281,17 +281,17 @@ is_decreasing([H1,H2|T]):-
 	H1>=H2, is_decreasing([H2|T]).
 
 /* Problem 5 Test: */
-%:- is_decreasing([]).            % SUCCEED
-%:- is_decreasing([10]).          % SUCCEED
-%:- is_decreasing([10,9]).        % SUCCEED
-%:- is_decreasing([10,9,7]).      % SUCCEED
-%:- is_decreasing([10,9,7,7,2]).  % SUCCEED
-%:- is_decreasing([1,1,1,1,1]).   % SUCCEED
+:- is_decreasing([]).            % SUCCEED
+:- is_decreasing([10]).          % SUCCEED
+:- is_decreasing([10,9]).        % SUCCEED
+:- is_decreasing([10,9,7]).      % SUCCEED
+:- is_decreasing([10,9,7,7,2]).  % SUCCEED
+:- is_decreasing([1,1,1,1,1]).   % SUCCEED
 
-%:- is_decreasing([10,9,7,9]).    % FAIL
-%:- is_decreasing([2,3,1]).       % FAIL
-%:- is_decreasing([1,2,3]).       % FAIL
-%:- is_decreasing([7,19]).        % FAIL
+:- is_decreasing([10,9,7,9]).    % FAIL
+:- is_decreasing([2,3,1]).       % FAIL
+:- is_decreasing([1,2,3]).       % FAIL
+:- is_decreasing([7,19]).        % FAIL
 
 
 /* Problem 6:
