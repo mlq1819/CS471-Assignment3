@@ -258,6 +258,10 @@ has_item(X, [_H|Y]) :- has_item(X,Y).
 
 /* Problem 4 Answer: */
 
+init([X|[]],[]).
+init([X|At], [X|Bt]):-
+	init(At,Bt).
+
 /* Problem 4 Test: */
 % :- init([1], []).       % SUCCEED
 % :- init([1,2,3], [1,2]).% SUCCEED
