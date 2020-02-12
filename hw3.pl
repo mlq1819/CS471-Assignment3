@@ -159,11 +159,10 @@ insert_at(E,[X|Y],N,[X|Z]) :-
 	N>0, Nn is N-1, insert_at(E,Y,Nn,Z).
 
 /* Problem 0D Test: */
-%:- insert_at(3,[1,2,3],2,[1,2,3,3]).  % SUCCEED
-%:- insert_at(1,[1,2,3],0,[1,1,2,3]).  % SUCCEED
-%:- insert_at(a,[1,2,3],1,[1,a,2,3]).  % SUCCEED
-
-%:- insert_at(1,[1,2,3],0,[1,2,3]).    % FAIL
+:- insert_at(3,[1,2,3],2,[1,2,3,3]).  % SUCCEED
+:- insert_at(1,[1,2,3],0,[1,1,2,3]).  % SUCCEED
+:- insert_at(a,[1,2,3],1,[1,a,2,3]).  % SUCCEED
+:- insert_at(1,[1,2,3],0,[1,2,3]).    % FAIL
 
 
 
@@ -247,9 +246,9 @@ has_item(X,[X|_T]).
 has_item(X, [_H|Y]) :- has_item(X,Y).
 
 /* Problem 3 Test: */
-%:- has_item((1,3),[(1,2),(1,3)]).     % SUCCEED
-%:- has_item(3,[3]).         % SUCCEED
-%:- has_item((1,3), [(2,1),(3,1)]).     % FAIL
+:- has_item((1,3),[(1,2),(1,3)]).     % SUCCEED
+:- has_item(3,[3]).         % SUCCEED
+:- has_item((1,3), [(2,1),(3,1)]).     % FAIL
 
 /* Problem 4:
  Write a predicate init(All, BLst) that succeeds if Blst has all the items of ALL
@@ -263,10 +262,10 @@ init([X|At], [X|Bt]):-
 	init(At,Bt).
 
 /* Problem 4 Test: */
-% :- init([1], []).       % SUCCEED
-% :- init([1,2,3], [1,2]).% SUCCEED
-% :- init([1,2], [1,2]).  % FAIL
-% :- init([1,2], [2]).	% FAIL
+:- init([1], []).       % SUCCEED
+:- init([1,2,3], [1,2]).% SUCCEED
+:- init([1,2], [1,2]).  % FAIL
+:- init([1,2], [2]).	% FAIL
 
 /* Problem 5:
 Write a predicate is_decreasing(X) that succeeds if X is a list of decreasing numbers -- Each number is either the same or lower than the preceding number.
