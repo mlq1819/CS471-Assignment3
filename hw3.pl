@@ -422,15 +422,17 @@ greater_than(succ(X),Y):-
    write a recursive definition for subtract/3.
 */
 
-
 /* Problem 11 Answer: */
 
+subtract(Num1,Num2,Result):-
+	add(Num2,Result,Num1).
+
 /* Problem 11 Test: */
-% :- subtract(succ(succ(0)), succ(0), succ(0)).       % SUCCEED
-% :- subtract(succ(succ(0)), 0, succ(succ(0))).       % SUCCEED
-% :- subtract(succ(succ(0)), succ(succ(0)), 0).       % SUCCEED
-% :- subtract(succ(succ(0)), 0, 0).	            % FAIL
-% :- subtract(succ(succ(0)), succ(0), succ(succ(0))). % FAIL
+:- subtract(succ(succ(0)), succ(0), succ(0)).       % SUCCEED
+:- subtract(succ(succ(0)), 0, succ(succ(0))).       % SUCCEED
+:- subtract(succ(succ(0)), succ(succ(0)), 0).       % SUCCEED
+:- subtract(succ(succ(0)), 0, 0).	            % FAIL
+:- subtract(succ(succ(0)), succ(0), succ(succ(0))). % FAIL
 
 /* Problem 12:
  
