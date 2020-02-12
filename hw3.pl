@@ -443,12 +443,18 @@ has_subseq([a,b,c,d],[b,d]) should succeed, but has_subseq([a,b,c,d],[b,e]) shou
 
 /* Problem 12 Answer */
 
-/* Problem 12 Test: */
-%:- has_subseq([a,g,b,d],[g,b]).     % SUCCEED
-%:- has_subseq([1,2,3,4],[2,4]).     % SUCCEED
-%:- has_subseq([1,2,3,4],[2,3]).     % SUCCEED
-%:- has_subseq([1,2,3,4],[]).        % SUCCEED
+has_subseq([],[]).
+has_subseq([H|Xt],[H|Yt]):-
+	has_subseq(Xt,Yt).
+has_subseq([Xh|Xt],Y):-
+	has_subseq(Xt,Y).
 
-%:- has_subseq([1,2,3,4],[2,5]).     % FAIL
-%:- has_subseq([1,2,3,4],[4,3]).     % FAIL
+/* Problem 12 Test: */
+:- has_subseq([a,g,b,d],[g,b]).     % SUCCEED
+:- has_subseq([1,2,3,4],[2,4]).     % SUCCEED
+:- has_subseq([1,2,3,4],[2,3]).     % SUCCEED
+:- has_subseq([1,2,3,4],[]).        % SUCCEED
+
+:- has_subseq([1,2,3,4],[2,5]).     % FAIL
+:- has_subseq([1,2,3,4],[4,3]).     % FAIL
 
