@@ -390,13 +390,24 @@ merge([Ah|At],[Bh|Bt],M):-
    Define a predicate greater_than/2 that takes two numerals in the notation
    that we introduced in the text (that is, 0, succ(0), succ(succ(0)), and so on)
    as arguments and decides whether the first one is greater than the second one.
+   
+numeral(0).
+numeral(succ(X))  :-  numeral(X).
+
+add(0,Y,Y).
+add(succ(X),Y,succ(Z))  :-
+	add(X,Y,Z).
 */
 
 /* Problem 10 Answer: */
 
+greater_than(succ(X),X).
+greater_than(succ(X),Y):-
+	greater_than(X,Y).
+
 /* Problem 10 Test: */
-% :- greater_than(succ(succ(succ(0))),succ(0)).        % SUCCEED
-% :- greater_than(succ(succ(0)),succ(succ(succ(0)))).  % FAIL
+:- greater_than(succ(succ(succ(0))),succ(0)).        % SUCCEED
+:- greater_than(succ(succ(0)),succ(succ(succ(0)))).  % FAIL
 
 
 
