@@ -346,14 +346,19 @@ zip([1],[a,b],Zs) should give Zs = [(1,a)] */
 
 /* Problem 8 Answer: */
 
-/* Problem 8 Test: */
-%:- zip([1,2,3],[a,b,c],[(1,a),(2,b),(3,c)]). % SUCCEED
-%:- zip([],[a,b,c],[]).                  % SUCCEED
-%:- zip([1,3],[],[]).                    % SUCCEED
-%:- zip([1,3],[2],[(1,2)]).              % SUCCEED
+zip([],_Y,[]).
+zip(_X,[],[]).
+zip([Xh|Xt],[Yh|Yt],Zs):-
+	zip(Xt,Yt,Zt), Zs = [(Xh,Yh)|Zt].
 
-%:- zip([1],[2],[(2,3)]).                 % FAIL
-%:- zip([1],[a,b],[(1,a),(1,b)]).         % FAIL
+/* Problem 8 Test: */
+:- zip([1,2,3],[a,b,c],[(1,a),(2,b),(3,c)]). % SUCCEED
+:- zip([],[a,b,c],[]).                  % SUCCEED
+:- zip([1,3],[],[]).                    % SUCCEED
+:- zip([1,3],[2],[(1,2)]).              % SUCCEED
+
+:- zip([1],[2],[(2,3)]).                 % FAIL
+:- zip([1],[a,b],[(1,a),(1,b)]).         % FAIL
 
 /* Problem 9:
 Write a predicate merge(A,B,M) that succeed if the list M has all the items from lists A and B in decreasing order.  Assume that A and B are sorted in decreasing order.  Items do not need to be unique.
@@ -368,9 +373,9 @@ merge([10,3,2], [11,5,2], M) should give M =[11,10,5,3,2,2].
 merge([],X,X).
 merge(X,[],X).
 merge([Ah|At],[Bh|Bt],M):-
-	Ah>=Bh, merge(At,[Bh|Bt],Ma), M is [Ah|Ma].
+	Ah>=Bh, merge(At,[Bh|Bt],Ma), M = [Ah|Ma].
 merge([Ah|At],[Bh|Bt],M):-
-	Ah<Bh, merge([Ah|At],Bt,Mb), M is [Bh|Mb].
+	Ah<Bh, merge([Ah|At],Bt,Mb), M = [Bh|Mb].
 
 /* Problem 9 Test: */
 :- merge([10,3,2],[11,5,2],[11,10,5,3,2,2]) .       % SUCCEED
